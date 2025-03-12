@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import './home.css'
 import calcTimeDays from "../count/calcTimer"
 import Control from '../control/controls'
@@ -30,7 +30,6 @@ function Clock() {
     setTimeInSeconds(0)
 
     let prevTimeInSeconds: number = daysPrev + hoursPrev + minsPrev + secsPrev
-
     setTimeInSeconds(prevTimeInSeconds)
     setIsOpen(false)
   }
@@ -69,6 +68,7 @@ function Clock() {
             <div>
               <input onChange={(e) => setDaysPrev(parseInt(e.target.value) * 86400)} type="number" name="daysInput" placeholder='days'/>
               <input onChange={(e) => setHoursPrev(parseInt(e.target.value) * 3600)} type="number" name="hoursInput" placeholder='hrs'/>
+              <br />
               <input onChange={(e) => setMinsPrev(parseInt(e.target.value) * 60)} type="number" name="minutesInput" placeholder='min'/>
               <input onChange={(e) => setSecsPrev(parseInt(e.target.value))} type="number" name="secondsInput" placeholder='sec'/>
             </div>
