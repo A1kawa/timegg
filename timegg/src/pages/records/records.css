@@ -1,0 +1,13 @@
+.curRec {
+    margin-top: 20px;
+    text-align: center;
+    background-color: rgb(50, 38, 56);
+    border-radius: 20px;
+    border: 3px rgb(40, 46, 71) solid;
+    padding: 10px 20px;
+    color: bisque;
+}
+.curRec h1 {
+    margin: 0;
+    line-height: 2rem;
+}

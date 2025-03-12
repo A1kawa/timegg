@@ -1,0 +1,99 @@
+body{
+  margin: 0;
+  background-color: rgb(38, 29, 43);
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.timerCont{
+  color: bisque;
+  font-size: 4.5rem;
+  letter-spacing: 4px;
+  display: flex;
+  div{
+    text-align: center;
+  }
+}
+
+.timerText{
+  margin: 0;
+}
+
+.timerLeg{
+  font-size: 1rem;
+  margin: 0;
+}
+
+.popUpCont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.popUpBG{
+  position: absolute;
+  background-color: rgba(0, 12, 12, 0.664);
+  width: 100%;
+  height: 100%;
+}
+.popUp {
+  position: absolute;
+  text-align: center;
+  background-color: rgb(38, 29, 43);
+  border: 3px rgb(40, 46, 71) solid;
+  border-radius: 20px;
+  color: bisque;
+  padding: 2rem;
+  height: 20vh;
+  input {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 10px;
+    padding: .5rem 0;
+    padding-left: .8rem;
+    padding-right: 0;
+    width: 4rem;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(40, 46, 71);
+    color: bisque;
+  }
+}
+input:focus {
+  outline: none;
+  border: 1px solid rgb(255, 244, 147);
+  box-shadow: 0 0 5px rgba(255, 228, 196, 0.452);
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  cursor: pointer;
+}
+
+button{
+  margin-top: 20px;
+  border: none;
+  padding: 5px 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background-color: rgb(204, 193, 94);
+  border-radius: 10px;
+  transition: .2s linear;
+}
+
+button:hover{
+  background-color: rgb(255, 244, 147);
+  scale: 1.05;
+}
