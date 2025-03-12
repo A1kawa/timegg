@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './home.css'
 import calcTimeDays from "../count/calcTimer"
 import Control from '../control/controls'
@@ -8,14 +8,32 @@ function Clock() {
   const [timeInSeconds, setTimeInSeconds] = useState<number>(0)
   const [timeArray, setTimeArray] = useState<Array<number | string>>([])
   const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [daysPrev, setDaysPrev] = useState<number>(0)
+  const [hoursPrev, setHoursPrev] = useState<number>(0)
+  const [minsPrev, setMinsPrev] = useState<number>(0)
+  const [secsPrev, setSecsPrev] = useState<number>(0)
+
   useEffect(() => {
-    console.log("O estado isOpen mudou para:", isOpen);
+    setDaysPrev(0)
+    setHoursPrev(0)
+    setMinsPrev(0)
+    setSecsPrev(0)
   }, [isOpen]);
 
   useEffect(() => {
     let time: Array<number | string> = calcTimeDays(timeInSeconds)
     setTimeArray(time)
   }, [timeInSeconds])
+
+  const submitPrev = () => {
+    
+    setTimeInSeconds(0)
+
+    let prevTimeInSeconds: number = daysPrev + hoursPrev + minsPrev + secsPrev
+
+    setTimeInSeconds(prevTimeInSeconds)
+    setIsOpen(false)
+  }
 
 
   return (
@@ -49,12 +67,12 @@ function Clock() {
           <div className='popUp'>
             <h1>set your personalized start time here</h1>
             <div>
-              <input type="number" name="daysInput" placeholder='days' id="" />
-              <input type="number" name="daysInput" placeholder='hrs' id="" />
-              <input type="number" name="daysInput" placeholder='min' id="" />
-              <input type="number" name="daysInput" placeholder='sec' id="" />
+              <input onChange={(e) => setDaysPrev(parseInt(e.target.value) * 86400)} type="number" name="daysInput" placeholder='days'/>
+              <input onChange={(e) => setHoursPrev(parseInt(e.target.value) * 3600)} type="number" name="hoursInput" placeholder='hrs'/>
+              <input onChange={(e) => setMinsPrev(parseInt(e.target.value) * 60)} type="number" name="minutesInput" placeholder='min'/>
+              <input onChange={(e) => setSecsPrev(parseInt(e.target.value))} type="number" name="secondsInput" placeholder='sec'/>
             </div>
-            <button>submit time</button>
+            <button onClick={submitPrev}>submit time</button>
           </div>
         </section>
       )}
